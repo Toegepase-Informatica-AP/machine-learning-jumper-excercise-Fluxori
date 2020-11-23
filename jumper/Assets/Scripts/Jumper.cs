@@ -1,4 +1,5 @@
-﻿using Unity.MLAgents;
+﻿using System;
+using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class Jumper : Agent
         base.Initialize();
         body = GetComponent<Rigidbody>();
         environment = GetComponentInParent<Environment>();
+        InvokeRepeating(nameof(AddOnGroundReward), 0, 1.0f);
     }
 
     public override void OnEpisodeBegin()
@@ -24,6 +26,14 @@ public class Jumper : Agent
         
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
+    }
+
+    private void AddOnGroundReward()
+    {
+        if (isOnGround)
+        {
+            AddReward(0.01f); 
+        }
     }
 
     public override void CollectObservations(VectorSensor sensor)
