@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Jumper : Agent
 {
-    public float speed = 10;
-    public float jumpForce = 2.0f;
+    public float jumpForce = 5f;
 
     private Rigidbody body;
     private Environment environment;
-    private int menhirCount;
     private bool isOnGround = true;
 
     public override void Initialize()
@@ -21,11 +19,11 @@ public class Jumper : Agent
 
     public override void OnEpisodeBegin()
     {
-        // transform.localPosition = new Vector3(0f, 1.5f, 0f);
-        // transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        environment.ClearEnvironment();
+        environment.SpawnObstacle();
+        
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
-        environment.ClearEnvironment();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -73,7 +71,6 @@ public class Jumper : Agent
         if (other.transform.CompareTag("Obstacle"))
         {
             AddReward(-1f);
-            
             EndEpisode();
         }
     }

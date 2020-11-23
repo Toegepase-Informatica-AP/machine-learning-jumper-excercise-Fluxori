@@ -23,9 +23,9 @@ public class Environment : MonoBehaviour
 
     public void SpawnObstacle()
     {
-        GameObject obstacle = Instantiate(obstaclePrefab.gameObject);
+        GameObject obstacle = Instantiate(obstaclePrefab.gameObject, new Vector3(obstacles.transform.position.x, 0, obstacles.transform.position.z), Quaternion.identity);
         obstacle.transform.SetParent(obstacles.transform);
-        obstacle.transform.localPosition = obstacles.transform.localPosition;
+        Debug.Log(obstacles.transform.localPosition);
     }
 
     // public Vector3 RandomPosition(float up)
