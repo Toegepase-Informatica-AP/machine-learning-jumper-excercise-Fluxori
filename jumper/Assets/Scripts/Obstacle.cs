@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
 {
-    // TODO: uitzoeken of we daar variabelen van kunnen maken
     private float speed = 1f;
     private Environment environment;
 
@@ -31,14 +30,16 @@ public class Obstacle : MonoBehaviour
 
     private void SetRandomSpeed()
     {
-        speed = Random.Range(1f, 20f);
+        speed = Random.Range(4f, 8f);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Border"))
         {
-            Destroy(this);
+            environment.jumper.AddReward(1f);
+            environment.SpawnObstacle();
+            Destroy(this.gameObject);
         }
     }
 }

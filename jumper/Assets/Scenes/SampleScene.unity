@@ -464,7 +464,7 @@ Transform:
   m_GameObject: {fileID: 1243839407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.32319, y: 1, z: 1}
+  m_LocalScale: {x: 0.32319, y: 1, z: 1.2105101}
   m_Children: []
   m_Father: {fileID: 890325829}
   m_RootOrder: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.76371455, w: -0.15181255}
+  m_margin: {x: -0.45386338, y: 0, z: -2.0780869, w: -0.15181255}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -664,7 +664,7 @@ PrefabInstance:
     - target: {fileID: 239012801021231864, guid: febce0851c0574475b71413b35857f97,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.8
+      value: -5.4
       objectReference: {fileID: 0}
     - target: {fileID: 239012801021231864, guid: febce0851c0574475b71413b35857f97,
         type: 3}
@@ -715,6 +715,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Border
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713945445326853524, guid: febce0851c0574475b71413b35857f97,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: febce0851c0574475b71413b35857f97, type: 3}

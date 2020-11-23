@@ -5,7 +5,7 @@ public class Environment : MonoBehaviour
 {
     public Obstacle obstaclePrefab;
     
-    private Jumper jumper;
+    internal Jumper jumper;
     private TextMeshPro scoreBoard;
     private GameObject obstacles;
 
@@ -27,14 +27,6 @@ public class Environment : MonoBehaviour
         obstacle.transform.SetParent(obstacles.transform);
         Debug.Log(obstacles.transform.localPosition);
     }
-
-    // public Vector3 RandomPosition(float up)
-    // {
-    //     float x = Random.Range(-9.75f, 9.75f);
-    //     float z = Random.Range(-9.75f, 9.75f);
-    //
-    //     return new Vector3(x, up, z);
-    // }
 
     public void ClearEnvironment()
     {
