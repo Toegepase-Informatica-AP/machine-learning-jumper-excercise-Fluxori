@@ -39,13 +39,6 @@ public class Jumper : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(isOnGround);
-
-        // TODO: zien of we hier een reward moeten zetten (0.1 om te blijven "leven")
-        // if (transform.localPosition.y < 0)
-        // {
-        //     AddReward(-1f);
-        //     EndEpisode();
-        // }
     }
     
     public override void Heuristic(float[] actionsOut)
