@@ -43,7 +43,7 @@ public class Environment : MonoBehaviour
             prefab = coinPrefab.gameObject;
             yPos = 0.54f;
         }
-        GameObject movingObject = Instantiate(prefab, new Vector3(objects.transform.position.x, yPos, objects.transform.position.z), Quaternion.identity);
+        GameObject movingObject = Instantiate(prefab, new Vector3(objects.transform.position.x, objects.transform.position.y + yPos, objects.transform.position.z), Quaternion.identity);
         movingObject.transform.SetParent(objects.transform);
         count++;
     }
