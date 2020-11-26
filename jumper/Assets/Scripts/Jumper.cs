@@ -79,6 +79,8 @@ public class Jumper : Agent
         if (other.transform.CompareTag("Coin"))
         {
             AddReward(1f);
+            Destroy(other.gameObject);
+            environment.SpawnObject();
         }
     }
 }
