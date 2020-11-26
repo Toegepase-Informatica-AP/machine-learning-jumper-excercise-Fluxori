@@ -4,6 +4,7 @@ using UnityEngine;
 public class Environment : MonoBehaviour
 {
     public Obstacle obstaclePrefab;
+    public Coin coinPrefab;
     
     internal Jumper jumper;
     private TextMeshPro scoreBoard;
