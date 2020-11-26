@@ -22,7 +22,7 @@ public class Jumper : Agent
     public override void OnEpisodeBegin()
     {
         environment.ClearEnvironment();
-        environment.SpawnObstacle();
+        environment.SpawnObject();
         
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
@@ -75,6 +75,10 @@ public class Jumper : Agent
         {
             AddReward(-1f);
             EndEpisode();
+        }
+        if (other.transform.CompareTag("Coin"))
+        {
+            AddReward(1f);
         }
     }
 }

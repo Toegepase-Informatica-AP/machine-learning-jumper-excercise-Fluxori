@@ -9,6 +9,7 @@ TagManager:
   - Border
   - Jumper
   - Obstacles
+  - Coin
   layers:
   - Default
   - TransparentFX

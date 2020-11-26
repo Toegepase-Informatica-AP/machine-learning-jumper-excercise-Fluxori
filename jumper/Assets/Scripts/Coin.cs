@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : MovingObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnTriggerExit(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.CompareTag("Border"))
+        {
+            environment.jumper.AddReward(-1f);
+            environment.SpawnObject();
+            Destroy(this.gameObject);
+        }
     }
 }

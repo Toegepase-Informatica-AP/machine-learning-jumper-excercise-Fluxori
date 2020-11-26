@@ -22,11 +22,10 @@ public class Environment : MonoBehaviour
         scoreBoard.text = jumper.GetCumulativeReward().ToString("f2");
     }
 
-    public void SpawnObstacle()
+    public void SpawnObject()
     {
         GameObject obstacle = Instantiate(obstaclePrefab.gameObject, new Vector3(obstacles.transform.position.x, 0, obstacles.transform.position.z), Quaternion.identity);
         obstacle.transform.SetParent(obstacles.transform);
-        Debug.Log(obstacles.transform.localPosition);
     }
 
     public void ClearEnvironment()
