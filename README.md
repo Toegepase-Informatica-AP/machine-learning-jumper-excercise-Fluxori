@@ -119,8 +119,6 @@ Verder voegen we nog twee componenten toe aan **jumper**: *Behavior Parameters* 
 
 ![Afbeelding Decision Requester](https://i.imgur.com/AmmOXhH.png)
 
-***insert prachtige afbeelding Decision Requester***
-
 ### **Obstacle** object
  De **obstacle** bestaat uit een *cube* met schaal {XYZ: 0.5, 0.5, 0.5}, met een rode *material*. De **obstacle** heeft ook een passende *Box Collider*, een *Rigidbody* component met alleen een bewegingsvrijheid in de z-as met een random snelheid.
 Bij *freeze rotation* staan alle vakjes aangevinkt, dus de **obstacle** kan niet roteren.
@@ -162,9 +160,12 @@ Deze gebruiken we om in de scripts mee te geven op welke plaats een **obstacle**
 
 ### Scoreboard
 
-***Insert prachtige afbeelding hier***
-
 De ScoreBoard is een instantie van de 3D-object TextMeshPro klasse dat de beloning zal weergeven.
+
+![Afbeelding Scoreboard](https://i.imgur.com/0U4hEYN.png)
+
+![Afbeelding Scoreboard Inspector](https://i.imgur.com/ZiL5AcJ.png)
+
 
 ## Scripts
 
