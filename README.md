@@ -1,4 +1,4 @@
-# machine-learning-jumper-excercise-Phoenix
+# Machine learning jumper excercise
 ## Groepsleden
 | Naam                   | S-nummer |
 | ---------------------- | -------- |
@@ -7,6 +7,7 @@
 | Yalda Fazlehaq         | s108051  |
 
 ## Inleiding
+
 Voor het vak VR-Experience kregen wij de opdracht om een zelflerende agent aan te maken die een obstakel ontwijkt door er over te springen. Dit doen we in Unity met behulp van ML Agents.
 Hierbij moest de snelheid elke episode veranderen.
 Verder mochten we kiezen uit één van de volgende functionaliteiten:
@@ -22,12 +23,11 @@ Wij hebben gekozen voor de tweede optie.
 
 - **Jumper**: de agent
 - **Obstacle**: het obstakel waar **jumper** over moet springen
-- **Coin**: de reward die **jumper** moet pakken???
+- **Coin**: de reward die **jumper** moet pakken
 - **Border**: wordt gebruikt om te detecteren dat de **coin** of **obstacle** voorbij de **jumper** is.
 - **Ground**: het veld waar de **jumber**, **obstacle**, **coin** en **border** staan
 - **Episode**: ???
-- **Environment**: ???
-
+- **Environment**: Een gameObject waarin alle andere objecten zitten.
 
 ## Versies
 
@@ -39,10 +39,12 @@ Wij hebben gekozen voor de tweede optie.
 | Tensorboard    | 2.3.1          |
 
 ## Spelverloop
+
 Per episode zal ofwel een **obstacle** op de **jumper** afkomen, ofwel een **coin**. 
 Indien het gaat om een **obstacle** moet de **jumper** erover springen en indien het gaat om een **coin** moet de **jumper** blijven staan om deze te vangen.
 
 ### Mogelijkheden beweging
+
 | Beweging                | **Jumper** | **Obstacle** | **Coin** |
 | :---------------------- | :--------: | :----------: | :------: |
 | Links/Rechts (x-as)     |    Nee     |     Nee      |   Nee    |
@@ -64,10 +66,10 @@ Indien een **coin** voorbij de **jumper** gaat en de **border** aanraakt, zal de
 | **Coin** botst tegen **jumper**     | + 1      |
 
 ## Het speelveld
+
 Op dit speelveld staan de verschillende speelobjecten zoals **ground**, **jumper**, **obstacle**, **border**, **coin** en scoreboard. Aan de hand van deze speelobjecten hebben we ML logica opgebouwed.  
 
 ![Afbeelding speelveld](https://i.imgur.com/ppgYvq7.png)
-
 
 ## Spelomgeving
 ### **Environment** object
@@ -81,8 +83,6 @@ Zoals te zien in de onderstaande afbeelding, heeft de **environment** ook een *E
 ![Environment](https://i.imgur.com/sbXvBtv.png)
 
 ![Environment](https://i.imgur.com/dEFM9mW.png)
-
-
 
 ### **Ground** object
 Het speelveld hebben we **Ground** genoemd. Deze is een simpel vlak met schaal en rotatie:
@@ -111,15 +111,11 @@ gebaseerd zijn op observaties, geven we deze een *Ray Perception Sensor 3D* comp
 
 ![Afbeelding Jumber](https://i.imgur.com/V8G0iDC.png)
 
-
-
 Verder voegen we nog twee componenten toe aan **jumper**: *Behavior Parameters* en *Decision Requester*. De *Behavior Parameter* zal het gedrag van de **jumper** bepalen, terwijl de *Decision Requester* de **jumper** voor een automatische trigger zal zorgen om de agent dwingen iets te doen. De warning die je ziet is normaal, omdat er nog geen Brain toegekend is aan `Model`.
 
 ![Afbeelding Behavior Parameter](https://i.imgur.com/7WkKQoS.png)
 
 ![Afbeelding Decision Requester](https://i.imgur.com/AmmOXhH.png)
-
-***insert prachtige afbeelding Decision Requester***
 
 ### **Obstacle** object
  De **obstacle** bestaat uit een *cube* met schaal {XYZ: 0.5, 0.5, 0.5}, met een rode *material*. De **obstacle** heeft ook een passende *Box Collider*, een *Rigidbody* component met alleen een bewegingsvrijheid in de z-as met een random snelheid.
@@ -203,7 +199,7 @@ private void FixedUpdate()
     scoreBoard.text = jumper.GetCumulativeReward().ToString("f2");
 }
 ```
-In `SpawnObject` wordt er ofwel een **obstacle** ofwel een **coin** gespawnd op de locatie van `objects`. Dit??? wordt random bepaald dankzij `int randomNumber = Random.Range(0, 2);`. Wanneer dit nummer 0 is, wordt er een **obstacle** gespawned. Wanneer dit 1 is, een **coin**. De **coin** krijgt nog een hogere y-positie mee, omdat deze anders half in de grond zit.
+In `SpawnObject` wordt er ofwel een **obstacle** ofwel een **coin** gespawnd op de locatie van `objects`. Welk object er wordt gespawnd wordt random bepaald dankzij `int randomNumber = Random.Range(0, 2);`. Wanneer dit nummer 0 is, wordt er een **obstacle** gespawnd. Wanneer dit 1 is, een **coin**. De **coin** krijgt nog een hogere y-positie mee, omdat deze anders half in de grond zit.
 In het begin wordt er gecontroleerd of de count hoger/gelijk is aan `MAX_SPAWNED_OBJECTS_BEFORE_END_EPISODE`. Wanneer dit het geval is, wordt de **episode** beëindigd. Dit is om ervoor te zorgen dat een **episode** niet te lang kan duren.
 ```cs
 public void SpawnObject()
@@ -230,7 +226,7 @@ public void SpawnObject()
     count++;
 }
 ```
-`ClearEnvironment` zorgt ervoor dat de **environment** terug op zijn oorspronkelijke staat komt te staan???. `count` wordt terug op 0 gezet en alle objecten in `objects` worden verwijderd. Dit zal er momenteel maar 1 zijn, maar we doen dit toch met een `foreach`-loop zodat latere uitbreiding mogelijk is (waarin er bv. meerdere objecten worden gespawnd).
+`ClearEnvironment` zorgt ervoor dat de **environment** terug op zijn oorspronkelijke staat komt te staan. `count` wordt terug op 0 gezet en alle objecten in `objects` worden verwijderd. Dit zal er momenteel maar 1 zijn, maar we doen dit toch met een `foreach`-loop zodat latere uitbreiding mogelijk is (waarin er bv. meerdere objecten worden gespawnd).
 ```cs
 public void ClearEnvironment()
 {
