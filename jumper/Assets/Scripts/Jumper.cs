@@ -16,7 +16,6 @@ public class Jumper : Agent
         base.Initialize();
         body = GetComponent<Rigidbody>();
         environment = GetComponentInParent<Environment>();
-        InvokeRepeating(nameof(AddOnGroundReward), 0, 1.0f);
     }
 
     public override void OnEpisodeBegin()
@@ -28,19 +27,6 @@ public class Jumper : Agent
         body.velocity = Vector3.zero;
     }
 
-    private void AddOnGroundReward()
-    {
-        if (isOnGround)
-        {
-            AddReward(0.01f); 
-        }
-    }
-
-    public override void CollectObservations(VectorSensor sensor)
-    {
-        sensor.AddObservation(isOnGround);
-    }
-    
     public override void Heuristic(float[] actionsOut)
     {
         actionsOut[0] = 0f;

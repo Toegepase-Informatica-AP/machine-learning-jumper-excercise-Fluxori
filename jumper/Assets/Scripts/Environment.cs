@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
-    private const int MAX_SPAWNED_OBJECTS_BEFORE_END_EPISODE = 20;
+    private const int MAX_SPAWNED_OBJECTS_BEFORE_END_EPISODE = 5;
     public Obstacle obstaclePrefab;
     public Coin coinPrefab;
     
