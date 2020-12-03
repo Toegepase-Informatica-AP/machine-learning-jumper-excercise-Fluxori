@@ -26,7 +26,7 @@ Wij hebben gekozen voor de tweede optie.
 - **Coin**: de reward die **jumper** moet pakken
 - **Border**: wordt gebruikt om te detecteren dat de **coin** of **obstacle** voorbij de **jumper** is.
 - **Ground**: het veld waar de **jumber**, **obstacle**, **coin** en **border** staan
-- **Episode**: ???
+- **Episode**: Eindigt wanneer *EndEpisode()* wordt opgeroepen.
 - **Environment**: Een gameObject waarin alle andere objecten zitten.
 
 ## Versies
